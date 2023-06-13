@@ -1,2 +1,1 @@
 require("tcabral")
-require("plugins")
