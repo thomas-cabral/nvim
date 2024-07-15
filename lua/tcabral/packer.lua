@@ -12,7 +12,22 @@ return require('packer').startup(function(use)
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
-
+  use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+          require('gitsigns').setup()
+      end
+  }
+  use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+        'nvim-tree/nvim-web-devicons', -- optional
+      },
+  }
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   use({
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
@@ -20,6 +35,14 @@ return require('packer').startup(function(use)
 		  vim.cmd('colorscheme rose-pine')
 	  end
   })
+
+  use ({ "EdenEast/nightfox.nvim",
+        as = "nightfox",
+        config = function()
+            vim.cmd('colorscheme nightfox')
+        end
+    })
+
 
   use ({ "catppuccin/nvim",
         as = "catppuccin",
